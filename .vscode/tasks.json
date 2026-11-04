@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Library Borrowing Session",
+            "type": "process",
+            "command": "g++",
+            "args": [
+                "-std=c++11",
+                "-Wall",
+                "-Wextra",
+                "-pedantic",
+                "-g",
+                "${workspaceFolder}\\main.cpp",
+                "${workspaceFolder}\\DoublyLinkedList.cpp",
+                "${workspaceFolder}\\Input.cpp",
+                "${workspaceFolder}\\Display.cpp",
+                "-o",
+                "${workspaceFolder}\\library.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run Library Borrowing Session",
+            "type": "process",
+            "command": "${workspaceFolder}\\library.exe",
+            "dependsOn": "Build Library Borrowing Session",
+            "dependsOrder": "sequence",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
